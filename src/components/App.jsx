@@ -23,19 +23,21 @@ function App() {
 
     return (
         <div>
-            <Header onDelete={deleteNote}/>
+            <Header onDelete={deleteNote} />
             <CreateArea onAdd={addNote} />
-            {notes.map((noteItem, index) => {
-                return (
-                    <Note
-                        key={index}
-                        id={index}
-                        title={noteItem.title}
-                        content={noteItem.content}
-                        onDelete={deleteNote}
-                    />
-                );
-            })}
+            <div className="note-container">
+                {notes.map((noteItem, index) => {
+                    return (
+                        <Note
+                            key={index}
+                            id={index}
+                            title={noteItem.title}
+                            content={noteItem.content}
+                            onDelete={deleteNote}
+                        />
+                    );
+                })}
+            </div>
             <Footer />
         </div>
     );
